@@ -154,7 +154,6 @@ hash        # hashmap, or dictionary
 
 range       # (1..5) is 1 to 5 inclusive; (1...5) not inclusive
 
-# you can access any variable's value by placing '#' in front 
 #-----------------------------#
 –––––––––––––––––––––––––––––––
 <><><><><><><><><><><><><><>
