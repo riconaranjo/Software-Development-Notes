@@ -599,8 +599,9 @@ Identifying Segues
 
 // in View Controller of interest, call on this method
 
+// happens before segue is executed
 override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-    if sender.identifier == "ID name" {
+    if segue.identifier == "ID name" {
         code
     }
 }
