@@ -5,7 +5,7 @@
 
  # Printing Strings - 105
  # Variables - 116
- # 
+ # Classes & Methods - 159
  # 
  # 
  # 
@@ -145,10 +145,10 @@ strings     # "" allow substitution and backslash notation
             # can add with '<<' or '+'
 array       # elements can be any type
 hash        # hashmap, or dictionary
-    hsh = colours = {'red' => 0xf00, 'green' => 0x0f0} 
+    @hsh = colours = {'red' => 0xf00, 'green' => 0x0f0} 
 # for arrays and hashes can use thing.each as a 'for each loop'
-    thing = ['first', 2, ]
-    thing.each do |i| # for hash use |key, value|
+    @thing = ['first', 2, ]
+    @thing.each do |i| # for hash use |key, value|
         puts i  # outputs each elems per line
     end
 
@@ -156,8 +156,32 @@ range       # (1..5) is 1 to 5 inclusive; (1...5) not inclusive
 
 #-----------------------------#
 –––––––––––––––––––––––––––––––
-<><><><><><><><><><><><><><>
+Classes & Methods
 –––––––––––––––––––––––––––––––
+# defining a class:
+class myClass
+
+    attr_reader :variable       # allows variable to be read outside class
+    attr_writer :variable       # allows variable to be modified from outside
+    attr_accessor :variable     # is reader + writer combined 
+
+    # constructor
+    def initialize(variable)
+        # initialize instance variables
+        @instance_variable = variable
+    end
+
+    # to define a method:
+    def myMethod
+        # do something
+    end
+end
+
+# does not support overloading directly like java
+
+
+
+
 #-----------------------------#
 –––––––––––––––––––––––––––––––
 <><><><><><><><><><><><><><>

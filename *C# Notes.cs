@@ -3,7 +3,7 @@
 /*---------------------------*/
 // TABLE OF CONTENTS
 
-/* Strings
+/* Strings - 103
  * 
  * 
  * 
@@ -118,8 +118,6 @@ value.toString("g") // to general number format
     // f: fixed notation, default 2 decimal places
     // Percent: divides by 100 and adds "%"
     // X: hexadecimal
-
-
 
 /*---------------------------*/
 –––––––––––––––––––––––––––––––
