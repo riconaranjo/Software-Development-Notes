@@ -4,7 +4,7 @@
 // TABLE OF CONTENTS
 
 /* Strings - 103
- * 
+ * For Each Loops - 124
  * 
  * 
  * 
@@ -103,13 +103,10 @@
 Strings
 –––––––––––––––––––––––––––––––
 /* Reading and Writing to Console */
-
 Console.ReadLine() // returns a string
-
 Console.WriteLine() // writes to console
 
 /* Substitution */
-
 Console.WriteLine("{0} {1}", value0, value1)
 
 /* format string */
@@ -121,8 +118,16 @@ value.toString("g") // to general number format
 
 /*---------------------------*/
 –––––––––––––––––––––––––––––––
-<><><><><><><><><><><><><><>
+For Each Loops
 –––––––––––––––––––––––––––––––
+// range of values
+IEnumerable <int> range = Enumerable.Range(startingPoint,howManyValues); 
+
+// will print each number in array
+foreach(int num in array) {
+    Console.WriteLine(num);
+}
+
 /*---------------------------*/
 –––––––––––––––––––––––––––––––
 <><><><><><><><><><><><><><>

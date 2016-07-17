@@ -6,7 +6,7 @@
  # Printing Strings - 105
  # Variables - 116
  # Classes & Methods - 159
- # 
+ # For Each Loops - 189
  # 
  # 
  # 
@@ -175,17 +175,28 @@ class myClass
     def myMethod
         # do something
     end
+
+    # defining a method with default arguement
+    def hi (name = "World")
+        puts "Hello #{name}" # will print "Hello World" if no name passed to method
+    end
 end
 
-# does not support overloading directly like java
-
-
-
+# Ruby does not support overloading directly like java
 
 #-----------------------------#
 –––––––––––––––––––––––––––––––
-<><><><><><><><><><><><><><>
+For Each Loops
 –––––––––––––––––––––––––––––––
+# range of values
+(n..m) # from n to m [inclusive]
+
+(n..m).each do |iterator|
+    puts iterator # will print n..m 
+end
+
+
+
 #-----------------------------#
 –––––––––––––––––––––––––––––––
 <><><><><><><><><><><><><><>
