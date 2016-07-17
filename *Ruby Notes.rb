@@ -195,7 +195,8 @@ For Each Loops
     puts iterator # will print n..m 
 end
 
-
+# creates array from range
+(x..y).to_a
 
 #-----------------------------#
 –––––––––––––––––––––––––––––––
