@@ -3,8 +3,8 @@
 /*---------------------------*/
 // TABLE OF CONTENTS
 
-/* Strings - 103
- * For Each Loops - 124
+/* Strings and Arrays - 103
+ * For Each Loops - 143
  * 
  * 
  * 
@@ -100,14 +100,14 @@
 
 /*---------------------------*/
 –––––––––––––––––––––––––––––––
-Strings
+Strings and Arrays
 –––––––––––––––––––––––––––––––
 /* Reading and Writing to Console */
-Console.ReadLine() // returns a string
-Console.WriteLine() // writes to console
+Console.ReadLine() // returns a string [cin]
+Console.WriteLine() // writes to console [cout]
 
 /* Substitution */
-Console.WriteLine("{0} {1}", value0, value1)
+Console.WriteLine("{0} {1}", value0, value1);
 
 /* format string */
 value.toString("g") // to general number format
@@ -115,6 +115,28 @@ value.toString("g") // to general number format
     // f: fixed notation, default 2 decimal places
     // Percent: divides by 100 and adds "%"
     // X: hexadecimal
+
+/* convert string to integer */
+int value = Convert.toInt32("insert string here");
+
+/* convert string to double */
+double number = Convert.toDouble("insert string here");
+
+/* to access each char */
+charAtIndex = str[index];
+
+/* length of string */
+numOfChars = str.Length;
+
+/* convert string to Array of Integers */
+string[] tempArr = Console.ReadLine().Split(' ');
+int[] intArr = Array.ConvertAll(tempArr,Int32.Parse);
+
+/* convert Array of Integers to string */
+string str = String.Join(" ", intArr);
+
+/* reverse array elements */
+Array.Reverse(intArr);
 
 /*---------------------------*/
 –––––––––––––––––––––––––––––––
