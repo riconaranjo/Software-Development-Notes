@@ -9,7 +9,8 @@
  # For Each Loops - 206
  # Equality - 220
  # Strings & Arrays - 244
- # 
+ # Searching in Hash - 
+
  # 
  # 
  # 
@@ -145,10 +146,13 @@ strings     # "" allow substitution and backslash notation
             # can add with '<<' or '+'
 array       # elements can be any type
 hash        # hashmap, or dictionary
-    @hsh = colours = {'red' => 0xf00, 'green' => 0x0f0} 
+    @hsh = {'red' => 0xf00, 'green' => 0x0f0}
+    newHash = Hash.new # initialize hash
+    newHash["forKey"] = variable
+    newHash.each_key
 # for arrays and hashes can use thing.each as a 'for each loop'
-    @thing = ['first', 2, ]
-    @thing.each do |i| # for hash use |key, value|
+    @arr = ['first', 2]
+    @arr.each do |i| # for hash use |key, value|
         puts i  # outputs each elems per line
     end
 
@@ -206,7 +210,8 @@ end
 For Each Loops
 –––––––––––––––––––––––––––––––
 ## creating a range of values
-(n..m) # from n to m [inclusive]
+(n..m)  # from n to m [inclusive]
+(n...m) # [exclusive]
 
 (n..m).each do |iterator|
     puts iterator # will print n..m 
@@ -250,6 +255,10 @@ input = gets
 str.strip           # removes leading and trailing whitespace
 str.chomp           # removes trailing whitespace
 str.chomp"arg"      # removes arguement if found at end
+# adding '!' will modify arguement
+    # str = str.chomp
+    # same as:
+    # str.chomp!
 
 ## convert string to array of integers
 intArray = input.split(" ").map(&:to_i)
@@ -263,8 +272,29 @@ intString = intArray.join(" ")
 
 #-----------------------------#
 –––––––––––––––––––––––––––––––
-<><><><><><><><><><><><><><>
+Searching in Hash
 –––––––––––––––––––––––––––––––
+# tring to find name in phonebook example:
+
+number = gets.to_i              # number of entries
+range = (1..number).to_a        # numbers into array
+book = Hash.new                 # intialize array
+
+range.each do                   # add each new entry from STDIN
+    input = gets.strip.split" "    
+    book[input[0]] = input[1]
+end
+
+STDIN.each_line do |query|      # for each new entry
+    query.strip!                # remove line endings and things
+    case book[query]            # if phone book has entry
+    when nil
+        puts'Not found'
+    else
+        puts "#{query}=#{book[query]}"
+    end
+end
+
 #-----------------------------#
 –––––––––––––––––––––––––––––––
 <><><><><><><><><><><><><><>
