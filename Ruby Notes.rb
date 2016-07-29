@@ -5,13 +5,12 @@
 
  # Printing Strings - 104
  # Variables - 116
- # Classes & Methods - 159
- # For Each Loops - 206
- # Equality - 220
- # Strings & Arrays - 244
- # Searching in Hash - 
-
- # 
+ # Classes & Methods - 162
+ # For Each Loops - 209
+ # Equality - 224
+ # Strings & Arrays - 248
+ # Searching in Hash - 274
+ # Cases - 299
  # 
  # 
  # 
@@ -297,8 +296,41 @@ end
 
 #-----------------------------#
 –––––––––––––––––––––––––––––––
-<><><><><><><><><><><><><><>
+Cases
 –––––––––––––––––––––––––––––––
+## useful way to evaluate for multiple outcomes
+
+case grade
+when 'A'                    # grade === 'A'
+    puts 'you smart'
+when 'B'
+    puts 'nice job'
+when 'C','D'                # can compare to multiple values
+    puts 'you dummy'
+else                        # default case
+    puts 'can\'t even type?'
+end
+
+## evaluates to an object, like everything else in Ruby
+
+case grade
+when 'A'                    # grade === 'A'
+    'you smart'
+when 'B'
+    'nice job'
+when 'C','D'                # can compare to multiple values, i.e. multiple cases
+    'you dummy'
+else                        # default case
+    'can\'t even type?'
+end
+
+# when you place this in a puts method call, will print out the string
+
+grade = 'A'
+puts case grade             # will print 'you smart''
+
+# is a quicker way for evaluating for instance in Array/Hashes
+
 #-----------------------------#
 –––––––––––––––––––––––––––––––
 <><><><><><><><><><><><><><>

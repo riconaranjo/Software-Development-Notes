@@ -3,8 +3,10 @@
 /*---------------------------*/
 // TABLE OF CONTENTS
 
-/* Strings and Arrays - 103
- * For Each Loops - 143
+/* Strings and Arrays - 104
+ * For Each Loops - 148
+ * Cases - 160
+ * Dictionary - 180
  * 
  * 
  * 
@@ -92,8 +94,7 @@
  * 
  * 
  * 
- * 
- * 
+ *
  *
  *
  */
@@ -117,7 +118,8 @@ value.toString("g") // to general number format
     // X: hexadecimal
 
 /* convert string to integer */
-int value = Convert.toInt32("insert string here");
+int value = Convert.ToInt32("insert string here");
+// use (ushort) for positive indicies, same as UInt16
 
 /* convert string to double */
 double number = Convert.toDouble("insert string here");
@@ -129,7 +131,7 @@ charAtIndex = str[index];
 numOfChars = str.Length;
 
 /* convert string to Array of Integers */
-string[] tempArr = Console.ReadLine().Split(' ');
+string[] tempArr = Console.ReadLine().Split(' ');       // or .Split(); whitespace is assumed 
 int[] intArr = Array.ConvertAll(tempArr,Int32.Parse);
 
 /* convert Array of Integers to string */
@@ -138,11 +140,14 @@ string str = String.Join(" ", intArr);
 /* reverse array elements */
 Array.Reverse(intArr);
 
+/* check if string is empty or null */
+string.IsNullOrEmpty(yourStringHere);       // returns boolean
+
 /*---------------------------*/
 –––––––––––––––––––––––––––––––
 For Each Loops
 –––––––––––––––––––––––––––––––
-// range of values
+/* range of values */
 IEnumerable <int> range = Enumerable.Range(startingPoint,howManyValues); 
 
 // will print each number in array
@@ -152,12 +157,63 @@ foreach(int num in array) {
 
 /*---------------------------*/
 –––––––––––––––––––––––––––––––
-<><><><><><><><><><><><><><>
+Cases
 –––––––––––––––––––––––––––––––
+/* evaluate multiple outcomes */
+
+switch (grade) {                        // compare grade
+case "A":                               // grade == "A"
+    Console.WriteLine("you smartie");
+    break;                              // have to end each block of code with (break;)
+case "B":
+    Console.WriteLine("cool");
+case "C": case "D":                     // multiple cases with same outcome
+    Console.WriteLine("your parents resent you");
+    break;
+default:                               // default case
+    Console.WriteLine("stay in school");
+    break;
+}
+
 /*---------------------------*/
 –––––––––––––––––––––––––––––––
-<><><><><><><><><><><><><><>
+Dictionary
 –––––––––––––––––––––––––––––––
+/* why use instead of Hashtable */
+// Dictionary is generic, whereas hashtable is not
+// can use any object for key or value
+
+dictionary<string,ushort> = new Dictionary<string,ushort>();        // instantiate
+
+/* add element */
+dictionary.Add("first", 1);              // (key, value)
+
+/* check for entry */
+// find value for key, quickest
+dictionary.TryGetValue("first");         // returns (1)
+// e.g.
+if(dictionary.TryGetValue("first", out index));     // index == 1
+if(dictionary.TryGetValue("second", out index));    // index unchanged
+
+// check values
+dictionary.ContainsKey("second");        // returns false
+// check keys
+dictionary.ContainsValue(1);             // returns true
+
+/* clear all entries */
+dictionary.Clear();
+
+/* remove certain value */
+dictionary.Remove(key);
+
+/* access at key */
+dictionary[key];
+
+/* print out all elements */
+foreach (KeyValuePair<string, string> kvp in book) {
+    Console.WriteLine("Key = {0}, Value = {1}", kvp.Key, kvp.Value);
+}
+
 /*---------------------------*/
 –––––––––––––––––––––––––––––––
 <><><><><><><><><><><><><><>
