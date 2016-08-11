@@ -143,6 +143,7 @@ strings     # "" allow substitution and backslash notation
             # '' do not allow substitution, or backslash notation
             # substitution: use #{} like \() in Swift
             # can add with '<<' or '+'
+    str.length  # gives number of characters
 array       # elements can be any type
 hash        # hashmap, or dictionary
     @hsh = {'red' => 0xf00, 'green' => 0x0f0}
@@ -162,7 +163,7 @@ range       # (1..5) is 1 to 5 inclusive; (1...5) not inclusive
 Classes & Methods
 –––––––––––––––––––––––––––––––
 ## defining a class:
-class MyClass
+class MyClass <ParentClass
 
     attr_reader :instance_variable       # allows variable to be read outside class
     attr_writer :instance_variable       # allows variable to be modified from outside
@@ -269,6 +270,10 @@ intArray.reverse
 ## convert array to string
 intString = intArray.join(" ")
 
+## iterating through every element in array
+# for example sum
+intArray.inject(:+)     # => sum of all elements
+
 #-----------------------------#
 –––––––––––––––––––––––––––––––
 Searching in Hash
@@ -301,27 +306,27 @@ Cases
 ## useful way to evaluate for multiple outcomes
 
 case grade
-when 'A'                    # grade === 'A'
-    puts 'you smart'
-when 'B'
-    puts 'nice job'
-when 'C','D'                # can compare to multiple values
-    puts 'you dummy'
-else                        # default case
-    puts 'can\'t even type?'
+    when 'A'                    # grade === 'A'
+        puts 'you smart'
+    when 'B'
+        puts 'nice job'
+    when 'C','D'                # can compare to multiple values
+        puts 'you dummy'
+    else                        # default case
+        puts 'can\'t even type?'
 end
 
 ## evaluates to an object, like everything else in Ruby
 
 case grade
-when 'A'                    # grade === 'A'
-    'you smart'
-when 'B'
-    'nice job'
-when 'C','D'                # can compare to multiple values, i.e. multiple cases
-    'you dummy'
-else                        # default case
-    'can\'t even type?'
+    when 'A'                    # grade === 'A'
+        'you smart'
+    when 'B'
+        'nice job'
+    when 'C','D'                # can compare to multiple values, i.e. multiple cases
+        'you dummy'
+    else                        # default case
+        'can\'t even type?'
 end
 
 # when you place this in a puts method call, will print out the string
@@ -396,7 +401,70 @@ puts case grade             # will print 'you smart''
 <><><><><><><><><><><><><><>
 –––––––––––––––––––––––––––––––
 #-----------------------------#
-
+–––––––––––––––––––––––––––––––
+<><><><><><><><><><><><><><>
+–––––––––––––––––––––––––––––––
+#-----------------------------#
+–––––––––––––––––––––––––––––––
+<><><><><><><><><><><><><><>
+–––––––––––––––––––––––––––––––
+#-----------------------------#
+–––––––––––––––––––––––––––––––
+<><><><><><><><><><><><><><>
+–––––––––––––––––––––––––––––––
+#-----------------------------#
+–––––––––––––––––––––––––––––––
+<><><><><><><><><><><><><><>
+–––––––––––––––––––––––––––––––
+#-----------------------------#
+–––––––––––––––––––––––––––––––
+<><><><><><><><><><><><><><>
+–––––––––––––––––––––––––––––––
+#-----------------------------#
+–––––––––––––––––––––––––––––––
+<><><><><><><><><><><><><><>
+–––––––––––––––––––––––––––––––
+#-----------------------------#
+–––––––––––––––––––––––––––––––
+<><><><><><><><><><><><><><>
+–––––––––––––––––––––––––––––––
+#-----------------------------#
+–––––––––––––––––––––––––––––––
+<><><><><><><><><><><><><><>
+–––––––––––––––––––––––––––––––
+#-----------------------------#
+–––––––––––––––––––––––––––––––
+<><><><><><><><><><><><><><>
+–––––––––––––––––––––––––––––––
+#-----------------------------#
+–––––––––––––––––––––––––––––––
+<><><><><><><><><><><><><><>
+–––––––––––––––––––––––––––––––
+#-----------------------------#
+–––––––––––––––––––––––––––––––
+<><><><><><><><><><><><><><>
+–––––––––––––––––––––––––––––––
+#-----------------------------#
+–––––––––––––––––––––––––––––––
+<><><><><><><><><><><><><><>
+–––––––––––––––––––––––––––––––
+#-----------------------------#
+–––––––––––––––––––––––––––––––
+<><><><><><><><><><><><><><>
+–––––––––––––––––––––––––––––––
+#-----------------------------#
+–––––––––––––––––––––––––––––––
+<><><><><><><><><><><><><><>
+–––––––––––––––––––––––––––––––
+#-----------------------------#
+–––––––––––––––––––––––––––––––
+<><><><><><><><><><><><><><>
+–––––––––––––––––––––––––––––––
+#-----------------------------#
+–––––––––––––––––––––––––––––––
+<><><><><><><><><><><><><><>
+–––––––––––––––––––––––––––––––
+#-----------------------------#
 
 
 
