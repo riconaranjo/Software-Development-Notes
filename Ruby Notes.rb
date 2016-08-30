@@ -5,13 +5,13 @@
 
  # Printing Strings - 104
  # Variables - 116
- # Classes & Methods - 162
- # For Each Loops - 209
- # Equality - 224
- # Strings & Arrays - 248
- # Searching in Hash - 274
- # Cases - 299
- # 
+ # Classes & Methods - 166
+ # For Each Loops - 216
+ # Equality - 231
+ # Strings & Arrays - 255
+ # Searching in Hash - 285
+ # Cases - 310
+ # Errors - 347
  # 
  # 
  # 
@@ -158,6 +158,9 @@ hash        # hashmap, or dictionary
 
 range       # (1..5) is 1 to 5 inclusive; (1...5) not inclusive
 
+# Math.Pow(n,p) // n^p
+n**p
+
 #-----------------------------#
 –––––––––––––––––––––––––––––––
 Classes & Methods
@@ -204,6 +207,9 @@ class MyClass <ParentClass
 end
 
 # Ruby does not support overloading directly like java
+
+## how to initialize object
+obj = MyClass.new(variable)
 
 #-----------------------------#
 –––––––––––––––––––––––––––––––
@@ -338,8 +344,26 @@ puts case grade             # will print 'you smart''
 
 #-----------------------------#
 –––––––––––––––––––––––––––––––
-<><><><><><><><><><><><><><>
+Errors
 –––––––––––––––––––––––––––––––
+## How to throw an error
+if condition
+    raise StandardError, "error message"
+end
+# else do this
+code
+
+# e.g.
+class Calculator
+    def power(n,p)
+        if n < 0 || p < 0
+            # RangeError: numerical value out of range
+            raise RangeError, "n and p should be non-negative"
+        end
+        return n**p
+    end
+end
+
 #-----------------------------#
 –––––––––––––––––––––––––––––––
 <><><><><><><><><><><><><><>

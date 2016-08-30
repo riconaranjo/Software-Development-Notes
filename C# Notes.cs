@@ -8,7 +8,7 @@
  * Cases - 160
  * Dictionary - 180
  * Classes & Methods - 219
- * 
+ * Errors - 246
  * 
  * 
  * 
@@ -243,12 +243,63 @@ class myClass : ParentClass {               // 'extends' is replaced by ':'
 
 /*---------------------------*/
 –––––––––––––––––––––––––––––––
-<><><><><><><><><><><><><><>
+Errors
 –––––––––––––––––––––––––––––––
+/* How to throw an error */
+
+if(condition) {
+    throw new System.Exception("error message");
+} 
+// else do this
+code
+
+// e.g.
+class Calculator {
+    public int power(int n, int p) {
+        if(n < 0 || p < 0 ) {
+            // Argument Exception is when passed arguement creates error
+            throw new System.ArgumentException("n and p should be non-negative");
+        }
+        int result = Convert.ToInt32(Math.Pow(n,p));
+        return result;
+    }
+}
+
 /*---------------------------*/
 –––––––––––––––––––––––––––––––
-<><><><><><><><><><><><><><>
+Variables
 –––––––––––––––––––––––––––––––
+/* all primative data types are represented as objects */
+string str = integer.ToString(); // can do this
+
+const       // constant
+int         // signed 32 bit
+double      // signed 64 bit
+string      // string of characters
+    // can compare strings with ==
+    str1 == str2    // compares string contents
+    str1 != str2    // not like Java
+
+/* Arrays */
+int[] intArray = {0,1};
+// or
+int[] intArray;
+intArray = new int[2]{0,1};
+// Multi-dimension Arrays
+int[,] multiArray = { {0,1} , {2,3} };
+
+/* Enumermations */
+enum numbers {
+    first,      // defaults to 0
+    second,     // defaults to 1
+    third,      // defaults to 2
+    forth       // defaults to 3
+} // can also assign numbers instead
+
+/* Exponents */
+Math.Pow(n,p); // n^p, n**p
+
+
 /*---------------------------*/
 –––––––––––––––––––––––––––––––
 <><><><><><><><><><><><><><>
