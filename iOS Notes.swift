@@ -14,13 +14,13 @@ import Foundation       // standard obj-c library
  * Permanent Storage - 282
  * Downloading Web Content - 300
  * Strings - 348
- * Updating Images / Animation - 371
- * Adding Apple Maps & Long Press - 425
- * Moving Buttons - 493
- * Using User Location - 515
- * Identifying Segues - 395
- * Working with Audio - 610
- * Generics & For Each Loops - 
+ * Updating Images / Animation - 370
+ * Adding Apple Maps & Long Press - 423
+ * Moving Buttons - 490
+ * Using User Location - 511
+ * Identifying Segues - 590
+ * Working with Audio - 605
+ * Generics & For Each Loops - 619
  * 
  * 
  * 

@@ -6,13 +6,13 @@
 /* Strings and Arrays - 104
  * For Each Loops - 148
  * Cases - 160
- * Dictionary - 180
+ * Dictionaries - 180
  * Classes & Methods - 219
- * Errors - 246
- * Generics - 
- * Interfaces and Inheritance - 
- * Delegates - 
- * 
+ * Error Handling - 250
+ * Variables - 273
+ * Generics - 371
+ * Interfaces and Inheritance - 388
+ * Delegates - 451
  * 
  * 
  * 
@@ -177,7 +177,7 @@ default:                               // default case
 
 /*---------------------------*/
 –––––––––––––––––––––––––––––––
-Dictionary
+Dictionaries
 –––––––––––––––––––––––––––––––
 /* why Dictionary is better than Hashtable */
 // Dictionary is generic, whereas hashtable is not
@@ -247,7 +247,7 @@ class myClass : ParentClass {               // 'extends' is replaced by ':'
 
 /*---------------------------*/
 –––––––––––––––––––––––––––––––
-Errors
+Error Handling
 –––––––––––––––––––––––––––––––
 /* how to throw an error */
 if(condition) {
@@ -354,7 +354,6 @@ Stack<T> stack = new Stack<T>();    // same constructors as List
 .Peek();                            // returns last object, without removing
 .Clear();                           // empties stack
 .Contains(T);                       // whether it contains value
-
 
 /* Enumermations */
 enum numbers {
