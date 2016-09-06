@@ -9,9 +9,9 @@
  * Dictionary - 180
  * Classes & Methods - 219
  * Errors - 246
- * 
- * 
- * 
+ * Generics - 
+ * Interfaces and Inheritance - 
+ * Delegates - 
  * 
  * 
  * 
@@ -179,11 +179,11 @@ default:                               // default case
 –––––––––––––––––––––––––––––––
 Dictionary
 –––––––––––––––––––––––––––––––
-/* why use instead of Hashtable */
+/* why Dictionary is better than Hashtable */
 // Dictionary is generic, whereas hashtable is not
 // can use any object for key or value
 
-dictionary<string,ushort> = new Dictionary<string,ushort>();        // instantiate
+dictionary<string,int> = new Dictionary<string,int>();        // instantiate
 
 /* add element */
 dictionary.Add("first", 1);              // (key, value)
@@ -228,6 +228,7 @@ pubic int PlusOne(int number) {
 /* declaring a class */
 class myClass : ParentClass {               // 'extends' is replaced by ':'
     private int instanceVariable;           // just like java...
+    public int Variable { get; set; }       // creates getter & setter functions
 
     // constructor
     public myClass(int var)
@@ -241,12 +242,14 @@ class myClass : ParentClass {               // 'extends' is replaced by ':'
     }
 }
 
+// can inherit multiple interfaces,
+// but only one class
+
 /*---------------------------*/
 –––––––––––––––––––––––––––––––
 Errors
 –––––––––––––––––––––––––––––––
-/* How to throw an error */
-
+/* how to throw an error */
 if(condition) {
     throw new System.Exception("error message");
 } 
@@ -281,12 +284,77 @@ string      // string of characters
     str1 != str2    // not like Java
 
 /* Arrays */
-int[] intArray = {0,1};
+int[] intArray = { 0,1 };
 // or
 int[] intArray;
-intArray = new int[2]{0,1};
+intArray = new int[2]{ 0,1 ;
 // Multi-dimension Arrays
 int[,] multiArray = { {0,1} , {2,3} };
+// Accessing ith element
+ith = intArray[i];
+
+/* Lists<T> */
+using Systems.Collections.Generic
+
+// properties
+.Capacity           // total capacity without resizing
+.Count              // elements contained
+.Item[Int32]        // gets or sets element at index
+
+// all elements must be of same object type
+List<T> list = new List<T>();   // empty list
+new List(IEnumerable<T>);       // list with values copied from collection
+new List(Int32);                // empty of given capacity
+list = {1,2,3}                  // if T == int
+
+/* ArrayList */
+using Systems.Collections
+
+// properties
+.Capacity           // total capacity without resizing
+.Count              // elements contained
+.Item[Int32]        // gets or sets element at index
+// a few more obscure ones on msdn
+
+ArrayList aList = new ArrayList();   // same constructors as List
+aList = { 1,'2',obj3 }               // can be multiple types of objects
+
+// Methods for Lists, ArrayList
+.Clear()                // removes all values
+.Add(obj)               // appends to end
+.Contains(obj)          // whether elems is within list
+.Insert(index,obj)      // inserts at index
+.RemoveAt(index)        // removes elems at specified index
+.Reverse()              // reverses all elems
+
+/* Queue<T> */
+using Systems.Collections.Generic
+
+// properties
+.Count          // number of elements
+
+// all objects must be of same object type
+Queue<T> q = new Queue<T>();        // same constructors as List
+.Enqueue("first value");            // first in, first out
+.Dequeue();                         // removes and returns first value
+.Peek();                            // returns first object, without removing
+.Clear();                           // empties queue
+.Contains(T);                       // whether it contains value
+
+
+/* Stack<T> */
+using Systems.Collections.Generic
+
+// properties
+.Count          // number of elements
+
+Stack<T> stack = new Stack<T>();    // same constructors as List
+.Push(T)                            // last in, first out
+.Pop()                              // removes and returns last object
+.Peek();                            // returns last object, without removing
+.Clear();                           // empties stack
+.Contains(T);                       // whether it contains value
+
 
 /* Enumermations */
 enum numbers {
@@ -299,19 +367,109 @@ enum numbers {
 /* Exponents */
 Math.Pow(n,p); // n^p, n**p
 
+/*---------------------------*/
+–––––––––––––––––––––––––––––––
+Generics
+–––––––––––––––––––––––––––––––
+/* printing generic array */
+
+// specify function of generic type with <T>
+public genericFunc<T>(ref T var);
+
+// e.g.
+public printArray<T>(IEnumerable<T> array) {
+    // arrays are IEnumerable with System.Collections.Generics
+    foreach(element in array) {
+        Console.WriteLine(element);
+    }
+}
 
 /*---------------------------*/
 –––––––––––––––––––––––––––––––
-<><><><><><><><><><><><><><>
+Interfaces and Inheritance
 –––––––––––––––––––––––––––––––
+/* creating an Interface */
+interface IName {
+    // all methods must be abstract
+    // abstract keyword is inferred for all methods
+    void Method();
+}
+
+/* creating an Abstract Class */ 
+abstract class AbstractClass {
+    // some methods can be abstract
+    abstract void AbstractMethod();
+    void PrintHello() {
+        Console.WriteLine("Hello");
+    }
+}
+
+/* implementing interfaces and abstract methods */
+    // can implement multiple Interfaces
+    // can only implement one class (inlcuding abstract class)
+
+    // must implent ALL abstract methods
+
+/* multiple Class inheritance */
+// Interfaces
+interface IA {
+    void AMethod();
+}
+interface IB {
+    void BMethod();
+}
+
+// super Classes
+class superA : IA {
+    public void AMethod() {
+        // code here
+    }
+}
+
+class superB : IB {
+    public void AMethod() {
+        // code here
+    }
+}
+
+// class with "multiple super classes"
+class subClass : IA, IB {
+
+    A a = new A();
+    B b = new B();
+
+    // this way code doesn't have to be rewritten
+    public void AMethod() {
+        a.AMethod();
+    }
+    public void BMethod() {
+        b.BMethod();
+    }
+}
+
 /*---------------------------*/
 –––––––––––––––––––––––––––––––
-<><><><><><><><><><><><><><>
+Delegates
 –––––––––––––––––––––––––––––––
-/*---------------------------*/
-–––––––––––––––––––––––––––––––
-<><><><><><><><><><><><><><>
-–––––––––––––––––––––––––––––––
+// holds reference to a function
+
+/* creating a Delegate  */
+public delegate void PrintDelegate(string message);
+
+// in main function
+public static void Main() {
+    // a delegate is a type safe function pointer
+    PrintDelegate del = new PrintDelegate(FunctionName);
+    del("this gets printed")
+}
+
+public static void FunctionName(string str) {
+    Console.WriteLine(str);
+}
+
+/* Delegate usage */
+// allows you to change which function is used in a certain place
+
 /*---------------------------*/
 –––––––––––––––––––––––––––––––
 <><><><><><><><><><><><><><>
