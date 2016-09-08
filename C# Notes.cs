@@ -5,17 +5,17 @@
 
 /* Strings and Arrays - 104
  * For Each Loops - 148
- * Cases - 160
+ * Switching Cases - 160
  * Dictionaries - 180
- * Classes & Methods - 219
- * Error Handling & Exceptions - 250
- * Variables - 273
- * Generics - 371
- * Interfaces and Inheritance - 388
- * Delegates and Lambda Functions - 451
- * 
- * 
- * 
+ * Classes & Methods - 218
+ * Error Handling & Exceptions - 285
+ * Variables - 361
+ * Generics - 485
+ * Interfaces and Inheritance - 513
+ * Delegates and Lambda Functions - 576
+ * Access Modifiers - 629
+ * Attributes - 656
+ * Equality - 673
  * 
  * 
  * 
@@ -157,7 +157,7 @@ foreach(int num in array) {
 
 /*---------------------------*/
 –––––––––––––––––––––––––––––––
-Cases
+Switching Cases
 –––––––––––––––––––––––––––––––
 /* evaluate multiple outcomes */
 // DOES NOT SUPPORT RANGE OF VALUES FOR CASES
@@ -182,50 +182,51 @@ Dictionaries
 /* why Dictionary is better than Hashtable */
 // Dictionary is generic, whereas hashtable is not
 // can use any object for key or value
+Dictionary<T,T> // <Key,Value>
+Dictionary<string,int> dictionary = new Dictionary<string,int>();        // instantiate
 
-dictionary<string,int> = new Dictionary<string,int>();        // instantiate
-
-/* add element */
+/* methods */
+// add element
 dictionary.Add("first", 1);              // (key, value)
 
-/* check for entry */
-// find value for key, quickest
+// quickest way find key of value
 dictionary.TryGetValue("first");         // returns (1)
 // e.g.
-if(dictionary.TryGetValue("first", out index));     // index == 1
-if(dictionary.TryGetValue("second", out index));    // index unchanged
+if(dictionary.TryGetValue("first", out index));     // index = 1
+if(dictionary.TryGetValue("second", out index));    // index unchanged, since not found
 
-// check values
+// check for key
 dictionary.ContainsKey("second");        // returns false
-// check keys
+// check for value
 dictionary.ContainsValue(1);             // returns true
 
-/* clear all entries */
-dictionary.Clear();
-
-/* remove certain value */
-dictionary.Remove(key);
-
-/* access at key */
-dictionary[key];
+dictionary.Count();         // total number of entries
+dictionary.Clear();         // clears all entries
+dictionary.Remove(key);     // remove at key
+dictionary[key];            // access at key
 
 /* print out all elements */
 foreach (KeyValuePair<string, string> kvp in book) {
     Console.WriteLine("Key = {0}, Value = {1}", kvp.Key, kvp.Value);
 }
 
+/* convert Type to dictionary */
+Dictionary<int, object> thing.ToDictionary(obj => x.0, obj => x);     // x.0 is key, ref x is value
+
 /*---------------------------*/
 –––––––––––––––––––––––––––––––
 Classes & Methods
 –––––––––––––––––––––––––––––––
 /* declaring a method */
-pubic int PlusOne(int number) {
+public int PlusOne(int number) {
     int result;
     result = number + 1;
     return result;
 }
 
 /* declaring a class */
+    // can inherit multiple interfaces,
+    // but only one class
 class myClass : ParentClass {               // 'extends' is replaced by ':'
 
     // can label regions with #region
@@ -241,14 +242,43 @@ class myClass : ParentClass {               // 'extends' is replaced by ':'
         // do this after calling parent constructor
     }
 
+    // method
     private int function() {
         string = "this is a function";
         return 0;
     }
+
+    // if you want to override base method (instead of hiding)
+    private override void overrideFunction() {
+        code
+    }
+
+    // making Type sortable in a list, needs to be comparable
+    public int CompareTo(myClass other) {
+        // implentation must follow this, in order to use .Sort();
+        if(this.instanceVariable > other.instanceVariable) {
+            return 1;
+        }
+        else if(this.instanceVariable > other.instanceVariable) {
+            return -1;
+        }
+        return 0;
+    }
 }
 
-// can inherit multiple interfaces,
-// but only one class
+/* partial classes */
+// splitting a class into multiple files
+// use partial keyword in each file
+partial class PartialClass {
+    code
+}
+/* default values for methods */
+static void function(int x = 10, int y = null) {
+    code
+}
+
+/* calling parameters by name */
+function(y: 10);    // 'x' will take default value
 
 /*---------------------------*/
 –––––––––––––––––––––––––––––––
@@ -384,6 +414,13 @@ aList = { 1,'2',obj3 }               // can be multiple types of objects
 .Insert(index,obj)      // inserts at index
 .RemoveAt(index)        // removes elems at specified index
 .Reverse()              // reverses all elems
+.Exists(Predicate<T>match);     // like .Contains with condition
+    // e.g.
+    .Exists(obj => obj.1 == value);
+.Find(Predicate<T>match);       // like .Exists, but returns index of first occurrance
+.FindAll(Predicate<T>match);    // returns list of results
+.FindIndex(Predicate<T>match);  // returns index of first occurrance
+.RemoveAll(Predicate<T>match)); // removes all with condition
 
 /* Queue<T> */
 using Systems.Collections.Generic
@@ -399,7 +436,6 @@ Queue<T> q = new Queue<T>();        // same constructors as List
 .Clear();                           // empties queue
 .Contains(T);                       // whether it contains value
 
-
 /* Stack<T> */
 using Systems.Collections.Generic
 
@@ -413,6 +449,10 @@ Stack<T> stack = new Stack<T>();    // same constructors as List
 .Peek();                            // returns last object, without removing
 .Clear();                           // empties stack
 .Contains(T);                       // whether it contains value
+
+/* finding all occurrances in list type */
+// elem, such that elem is equal to x
+count = list.Count(elem => elem == x);
 
 /* Enumermations */
 enum Numbers {
@@ -630,8 +670,13 @@ public class RandomClass {
 }
 /*---------------------------*/
 –––––––––––––––––––––––––––––––
-<><><><><><><><><><><><><><>
+Equality
 –––––––––––––––––––––––––––––––
+/* Double Equals */
+// when used on objects, will compare references
+object == object        // compares references
+string == string        // compares contents
+
 /*---------------------------*/
 –––––––––––––––––––––––––––––––
 <><><><><><><><><><><><><><>
