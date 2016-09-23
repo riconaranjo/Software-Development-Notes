@@ -3,8 +3,8 @@
 #---------------------------------#
 # TABLE OF CONTENTS
 
- # 
- # 
+ # Installing Ruby on Rails - 104
+ # Creating Rails App - 
  # 
  # 
  # 
@@ -101,12 +101,65 @@
 
 #-----------------------------#
 –––––––––––––––––––––––––––––––
-<><><><><><><><><><><><><><>
+Installing Ruby on Rails
 –––––––––––––––––––––––––––––––
+## Xcode Command Line Tools
+# make sure it is installed, and updated
+
+## go to this website:
+'http://installrails.com/steps/choose_os_version'
+
 #-----------------------------#
 –––––––––––––––––––––––––––––––
-<><><><><><><><><><><><><><>
+Creating Rails App
 –––––––––––––––––––––––––––––––
+## Create App
+rails new myApp
+
+## install required gems
+bundle install
+
+## generate model
+rails generate model MyModel
+# a model is a 'database controller'
+# adding methods to models:
+class Tag < ActiveRecord::Base
+    has_many :destinations
+    # multiple
+    belong_to :tag
+    # singular
+end
+
+## creating columns in Database
+# in migration files for models:
+class CreateTags < ActiveRecord::Migration
+    def change
+        create_table :tags do |t|
+            t.string :title # column named title
+            t.string :image # column named image
+            t.timestamps
+        end
+    end
+end
+
+class ActiveRecord::Migration
+# contains three important methods:
+    def change  # creating new columns or tables 
+    end
+
+    def up      # perform required transformations
+    end
+
+    def down    # revert transformations
+    end
+
+end
+## generate controller
+rails generate controller MyController
+
+## creating a route that maps to controller action
+get '/tags' => 'tags#index'     # Tags controller name is lowercase
+
 #-----------------------------#
 –––––––––––––––––––––––––––––––
 <><><><><><><><><><><><><><>
