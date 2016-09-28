@@ -16,7 +16,7 @@
  * Access Modifiers - 629
  * Attributes - 656
  * Equality - 673
- * 
+ * Optionals - 682
  * 
  * 
  * 
@@ -679,8 +679,14 @@ string == string        // compares contents
 
 /*---------------------------*/
 –––––––––––––––––––––––––––––––
-<><><><><><><><><><><><><><>
+Optionals
 –––––––––––––––––––––––––––––––
+/* making an variable optional */
+int? x = y;     // (y) might be null
+
+// in reverse:
+y = (int)x;     // must cast back to non-optional
+
 /*---------------------------*/
 –––––––––––––––––––––––––––––––
 <><><><><><><><><><><><><><>

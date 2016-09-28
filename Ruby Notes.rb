@@ -322,7 +322,8 @@ case grade
         puts 'can\'t even type?'
 end
 
-## evaluates to an object, like everything else in Ruby
+## this evaluates to an object, like everything else in Ruby
+# alternate method
 
 case grade
     when 'A'                    # grade === 'A'
@@ -335,7 +336,7 @@ case grade
         'can\'t even type?'
 end
 
-# when you place this in a puts method call, will print out the string
+# when you place above in a puts method call, will print out the string
 
 grade = 'A'
 puts case grade             # will print 'you smart''

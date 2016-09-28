@@ -4,7 +4,7 @@
 # TABLE OF CONTENTS
 
  # Installing Ruby on Rails - 104
- # Creating Rails App - 
+ # Creating Rails App - 114
  # 
  # 
  # 
@@ -126,7 +126,7 @@ rails generate model MyModel
 class Tag < ActiveRecord::Base
     has_many :destinations
     # multiple
-    belong_to :tag
+    belongs_to :tag
     # singular
 end
 
