@@ -5,9 +5,9 @@
 
  # Installing Ruby on Rails - 104
  # Creating Rails App - 114
- # 
- # 
- # 
+ # Running Server - 165
+ # Setting up a Blog Site - 
+ # "Migrations Pending" Error - 
  # 
  # 
  # 
@@ -120,7 +120,7 @@ rails new myApp
 bundle install
 
 ## generate model
-rails generate model MyModel
+rails generate model Tag
 # a model is a 'database controller'
 # adding methods to models:
 class Tag < ActiveRecord::Base
@@ -155,27 +155,102 @@ class ActiveRecord::Migration
 
 end
 ## generate controller
-rails generate controller MyController
+rails generate controller MyControllers
 
-## creating a route that maps to controller action
-get '/tags' => 'tags#index'     # Tags controller name is lowercase
+## creating a route that maps to model action
+get '/tags' => 'tags#index'     # uses plural
 
 #-----------------------------#
 –––––––––––––––––––––––––––––––
-<><><><><><><><><><><><><><>
+MVC Design
 –––––––––––––––––––––––––––––––
+## Model
+# all the logic is done here
+# validation of data should be done here
+# uses plural names
+
+## View
+# what the user sees
+
+## Controller
+# in charge of redirecting and triggering actions
+# uses singular names
+
 #-----------------------------#
 –––––––––––––––––––––––––––––––
-<><><><><><><><><><><><><><>
+Running Server
 –––––––––––––––––––––––––––––––
+## command line
+
+# first create app and go to it's directory
+rails new App
+
+# run server
+rails server
+
+# or
+rails s
+
 #-----------------------------#
 –––––––––––––––––––––––––––––––
-<><><><><><><><><><><><><><>
+Setting up a Blog Site
 –––––––––––––––––––––––––––––––
+## used guide for creating blog site on:
+# http://edgeguides.rubyonrails.org/getting_started.html
+
+## create app
+rails generate new Website
+
+## create controller and homepage
+# this creates route as well
+rails generate controller Logic homepage
+# this is created in /app/views
+homepage.html.erb
+
+## set up root page
+# in /config/routes.rb
+root "logic#homepage"
+    # this will set root page to homepage action
+
+## set up Article controller
+rails generate controller Articles
+# add 'new' action and create:
+new.html.erb
+
+## set up logic for each article
+# in routes.rb
+resources :articles     # now /article/new will be automatically routed
+
+## create Article model
+rails generate Article model title:string text:text
+
+## linking pages
+<%= link_to 'My Blog', controller: 'articles' % >
+    # links to Articles controller index method
+<%= link_to 'Back', articles_path % >
+    # links back to previous? or to Articles index?
+
+
 #-----------------------------#
 –––––––––––––––––––––––––––––––
-<><><><><><><><><><><><><><>
+"Migrations Pending" Error
 –––––––––––––––––––––––––––––––
+## I get this error a lot
+# in terminal run:
+rails db:migrate
+
+#-----------------------------#
+–––––––––––––––––––––––––––––––
+RESTful API
+–––––––––––––––––––––––––––––––
+## Rails uses this a lot
+PUT: update a resource
+GET: get a resource
+POST: creates a resources
+
+# POST command calls on controller's create method
+
+# a resource is a collection of similar items, like articles
 #-----------------------------#
 –––––––––––––––––––––––––––––––
 <><><><><><><><><><><><><><>
