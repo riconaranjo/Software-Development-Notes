@@ -167,6 +167,7 @@ case "A":                               // grade == "A"
     break;                              // have to end each block of code with (break;)
 case "B":
     Console.WriteLine("cool");
+    break;
 case "C": case "D":                     // multiple cases with same outcome
     Console.WriteLine("your parents resent you");
     break;
