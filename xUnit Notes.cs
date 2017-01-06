@@ -3,15 +3,15 @@
 /*---------------------------*/
 // TABLE OF CONTENTS
 
-/* 
- * 
- * 
- * 
- * 
- * 
- * 
- * 
- * 
+/* Setting Up xUnit - 104
+ * Test Types - 124
+ * Asserts - 134
+ * Categories - 197
+ * Test Output - 205
+ * Setup and Clean up - 224
+ * Collection Fixtures - 281
+ * Parallel Execution - 297
+ * Collection Execution Order - 311
  * 
  * 
  * 
