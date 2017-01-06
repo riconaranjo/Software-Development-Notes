@@ -327,12 +327,37 @@ public class CollectionOrderer : ITestCollectionOrderer {
 
 /*---------------------------*/
 –––––––––––––––––––––––––––––––
-<><><><><><><><><><><><><><>
+Data-driven Tests
 –––––––––––––––––––––––––––––––
+/* Using Theory attribute */
+
+// must place data inputs in method header
+[Theory]
+public void TestCase(object data1, object data2) {...}
+    // will give error like this
+
+/* Inline Data attribute */
+
+// add one for each run required
+[Theory]
+[InlineData(10,"string")]
+[InlineData(13,"other string")]
+public void TestCase(int data1, string data2) {...}
+
 /*---------------------------*/
 –––––––––––––––––––––––––––––––
-<><><><><><><><><><><><><><>
+Show Only Test Method Name
 –––––––––––––––––––––––––––––––
+/* Configure app settings */
+
+// in App.config
+<configureation>
+    <appSettings>
+        // add this line, will no longer show full class name
+        <add key="xunit.methodDisplay" value="method"/>
+    </appSettings>
+</configuration>
+
 /*---------------------------*/
 –––––––––––––––––––––––––––––––
 <><><><><><><><><><><><><><>
