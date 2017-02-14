@@ -122,7 +122,7 @@ int value = Convert.ToInt32("insert string here");
 // use (ushort) for positive indicies, same as UInt16
 
 /* convert string to double */
-double number = Convert.toDouble("insert string here");
+double number = Convert.ToDouble("insert string here");
 
 /* to access each char */
 charAtIndex = str[index];
@@ -135,8 +135,8 @@ string[] tempArr = Console.ReadLine().Split(' ');       // or .Split(); whitespa
 int[] intArr = Array.ConvertAll(tempArr,Int32.Parse);
 
 /* convert Array of Integers to string */
-string str = String.Join(" ", intArr);
-
+string str = String.Join(' ', intArr);
+ 
 /* reverse array elements */
 Array.Reverse(intArr);
 
@@ -184,7 +184,12 @@ Dictionaries
 // Dictionary is generic, whereas hashtable is not
 // can use any object for key or value
 Dictionary<T,T> // <Key,Value>
-Dictionary<string,int> dictionary = new Dictionary<string,int>();        // instantiate
+var dictionary = new Dictionary<string,int>();        // instantiate
+var book = new Dictionary<string,string>
+{
+    {"key one", "value one"},
+    {"key two", "value two"}
+}
 
 /* methods */
 // add element

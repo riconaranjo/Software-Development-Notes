@@ -155,7 +155,7 @@ Assert.Matches(pattern, actual);
 /* Booleans and Nulls */
 
 // compare bool
-Assert.True(result);
+Assert.True(result);      // these are the best replacement for Assert.Pass, Assert.Fail
 Assert.False(result);
 // compare for null
 Assert.Null(result);
@@ -174,10 +174,12 @@ Assert.DoesNotContain(item, list);
 Assert.Contains(list, item => (string)item.Contains(match));
 
 /* Ranges */
+
 // ensure number falls within range
 Assert.InRange(actual, min, max);
 
 /* Expected Exception */
+
 // ensure correct exception thrown
 Assert.Throws<Exception>( () => methodThrowsException() );
 // preserve exception:
@@ -185,6 +187,7 @@ Exception ex = Assert.Throws<Exception>( () => methodThrowsException() );
 Assert.Equal(exceptionNameExpected, ex.ParamName);
 
 /* Object Types */
+
 // assert object is of correct type
 Assert.IsType(typeof(Type), obj);
 Assert.IsType<Type>(obj);
