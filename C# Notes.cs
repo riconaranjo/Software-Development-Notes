@@ -17,7 +17,7 @@
  * Attributes - 656
  * Equality - 673
  * Optionals - 682
- * 
+ * Accessors - 698
  * 
  * 
  * 
@@ -695,8 +695,24 @@ y = (int)x;     // must cast back to non-optional
 
 /*---------------------------*/
 –––––––––––––––––––––––––––––––
-<><><><><><><><><><><><><><>
+Accessors
 –––––––––––––––––––––––––––––––
+/* add in class properties */
+
+// a stack that keeps track of all values given to MyString
+private static Stack<string> _myStack;
+internal static string MyString { get return _myStack.Peek(); set _myStack.Push(value); }
+
+// so when this happens...
+MyString = "this is a string";
+// it also calls this:
+_myStack.Push("this is a string");
+
+// or when this:
+otherString = MyString;
+// is actually calling:
+_myStack.Peek()
+
 /*---------------------------*/
 –––––––––––––––––––––––––––––––
 <><><><><><><><><><><><><><>
