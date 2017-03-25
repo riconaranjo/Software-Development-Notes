@@ -6,19 +6,19 @@
 /* Strings and Arrays - 104
  * For Each Loops - 148
  * Switching Cases - 160
- * Dictionaries - 180
- * Classes & Methods - 218
- * Error Handling & Exceptions - 285
- * Variables - 361
- * Generics - 485
- * Interfaces and Inheritance - 513
- * Delegates and Lambda Functions - 576
- * Access Modifiers - 629
- * Attributes - 656
- * Equality - 673
- * Optionals - 682
- * Accessors - 698
- * 
+ * Dictionaries - 181
+ * Classes & Methods - 224
+ * Error Handling & Exceptions - 291
+ * Variables - 367
+ * Generics - 492
+ * Interfaces and Inheritance - 520
+ * Delegates and Lambda Functions - 583
+ * Access Modifiers - 636
+ * Attributes - 663
+ * Equality - 680
+ * Optionals - 689
+ * Accessors - 704
+ * Copy a Stack - 724
  * 
  * 
  * 
@@ -690,9 +690,14 @@ Optionals
 –––––––––––––––––––––––––––––––
 /* making an variable optional */
 int? x = y;     // (y) might be null
+// must 'unwrap' value
+var xValue = x != null : x.Value ? -1;
+    // xValue is equal to the value of x,
+    // if x is not null
+    // else it is assigned -1
 
 // in reverse:
-y = (int)x;     // must cast back to non-optional
+y = (int) x;     // must cast back to non-optional
 
 /*---------------------------*/
 –––––––––––––––––––––––––––––––
@@ -716,8 +721,17 @@ _myStack.Peek()
 
 /*---------------------------*/
 –––––––––––––––––––––––––––––––
-<><><><><><><><><><><><><><>
+Copy a Stack
 –––––––––––––––––––––––––––––––
+/* Create a method that returns a new stack */
+
+// shallow copy
+internal static Stack<T> CopyStack(Stack<T> stack) {
+    // creating a stack from another will reverse it
+    // so to make sure order is preserved reverse stack
+    return new Stack<T>(stack.Reverse())
+}
+
 /*---------------------------*/
 –––––––––––––––––––––––––––––––
 <><><><><><><><><><><><><><>
