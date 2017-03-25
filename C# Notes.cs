@@ -423,10 +423,11 @@ aList = { 1,'2',obj3 }               // can be multiple types of objects
 .Exists(Predicate<T>match);     // like .Contains with condition
     // e.g.
     .Exists(obj => obj.1 == value);
-.Find(Predicate<T>match);       // like .Exists, but returns index of first occurrance
-.FindAll(Predicate<T>match);    // returns list of results
-.FindIndex(Predicate<T>match);  // returns index of first occurrance
-.RemoveAll(Predicate<T>match)); // removes all with condition
+.Find(Predicate<T>match);            // like .Exists, but returns index of first occurrance
+.FirstOrDefault(Predicate<T>match);  // like .Find, but null safe
+.FindAll(Predicate<T>match);         // returns list of results
+.FindIndex(Predicate<T>match);       // returns index of first occurrance
+.RemoveAll(Predicate<T>match));      // removes all with condition
 
 /* Queue<T> */
 using Systems.Collections.Generic
