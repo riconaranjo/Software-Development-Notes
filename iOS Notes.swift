@@ -632,8 +632,14 @@ func printArray<T>(input: [T]) {
 }
 /*---------------------------*/
 –––––––––––––––––––––––––––––––
-<><><><><><><><><><><><><><>
+Nil-Coalescing Operator 
 –––––––––––––––––––––––––––––––
+/* setting a default value if something is false */
+
+let someValue = otherValue ?? defaultValue
+// if otherValue != nil, someValue = otherValue
+// else someValue = defaultValue
+
 /*---------------------------*/
 –––––––––––––––––––––––––––––––
 <><><><><><><><><><><><><><>
